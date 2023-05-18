@@ -1,3 +1,4 @@
+import { Address } from './../address/address';
 export interface User {
   id: string
   avatar: string
@@ -5,4 +6,5 @@ export interface User {
   subtitle: string
   country: 'russia' | 'usa'
   score: number
+  address: Address
 }

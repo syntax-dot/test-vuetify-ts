@@ -7,6 +7,10 @@ export const users: User[] = [
     title: 'Brunch this weekend?',
     country: 'russia',
     score: 9,
+    address: {
+      city: 'Sankt-peterburg',
+      street: 'Ispytateley Pr., bld. 28/31, appt. 47',
+    },
     subtitle: '<span class="text--primary">Ali Connors</span> &mdash; I\'ll be in your neighborhood doing errands this weekend. Do you want to hang out?'
   },
   {
@@ -14,6 +18,10 @@ export const users: User[] = [
     avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
     title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
     country: 'usa',
+    address: {
+      city: 'West Palm Beach',
+      street: '1700 Wyatt Street',
+    },
     score: 12,
     subtitle: '<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I\'m out of town this weekend.'
   },
@@ -22,6 +30,10 @@ export const users: User[] = [
     avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
     title: 'Oui oui',
     country: 'russia',
+    address: {
+      city: 'Magnitogorsk',
+      street: 'Angarskaya, bld. 109',
+    },
     score: 13,
     subtitle: '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?'
   },
@@ -30,6 +42,10 @@ export const users: User[] = [
     avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
     title: 'Birthday gift',
     country: 'usa',
+    address: {
+      city: 'West Palm Beach',
+      street: '1700 Wyatt Street',
+    },
     score: 23,
     subtitle: '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?'
   },
@@ -38,6 +54,10 @@ export const users: User[] = [
     avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
     title: 'Recipe to try',
     country: 'russia',
+    address: {
+      city: 'Sankt-peterburg',
+      street: 'Ispytateley Pr., bld. 28/31, appt. 47',
+    },
     score: 44,
     subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
   }
