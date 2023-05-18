@@ -23,7 +23,8 @@
 
       <v-col cols="12"
              md="4">
-        <usersList :users="filtredUsers" />
+        <usersList />
+        <!-- <usersList :users="filtredUsers" /> -->
       </v-col>
     </v-row>
   </v-container>
@@ -32,33 +33,49 @@
 <script lang="ts" setup>
 import { userFilter } from '@/components/userFilter';
 import { usersList } from '@/components/userList';
-import { users } from '@/mock/users';
-import { User } from '@/types/user/user';
+// import { users } from '@/mock/users';
+// import { User } from '@/types/user/user';
 import { FilterList } from '@/types/filter/filterList';
-import { FilterBy } from '@/types/filter/selectedFilter';
+import { FilterBy } from '@/types/filter/filterBy';
 import { ref, watchEffect } from 'vue';
 import { useStore } from '@/store/app';
 
 const store = useStore()
 
-const filtredUsers = ref<User[]>(users)
+// const filtredUsers = ref<User[]>(users)
 
 const filters: FilterList = {
   byCountry: ['russia', 'usa'],
   byScore: [10, 20]
 }
 
-const selectedFilter = ref<FilterBy>(null)
+const selectedFilter = ref<FilterBy>({
+  byCountry: null,
+  byScore: null
+})
+
+// **** if you do not use state managers ****
 
 // function changeUsers() {
-//   if (!selectedFilter.value) return
-//     filtredUsers.value = users.filter(user => user.country === selectedFilter.value?.byCountry)
+//   const { byCountry, byScore } = selectedFilter.value
+
+//   if (!byCountry && !byScore) return
+
+//   if (byCountry)
+//     return filtredUsers.value = users.filter(user => user.country === byCountry)
+
+//   else if (byScore)
+//     return filtredUsers.value = users.filter(user => user.score === byScore)
 // }
 
 // watchEffect(changeUsers)
 
-function changeFilter(){
-  if (!selectedFilter.value) return
+// **** using the state manager ****
+
+function changeFilter() {
+  const { byCountry, byScore } = selectedFilter.value
+
+  if (!byCountry && !byScore) return store.clearFilter()
 
   store.setFilter(selectedFilter.value)
 }

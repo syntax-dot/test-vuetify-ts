@@ -1,6 +1,7 @@
+import { FilterBy } from "../filter/filterBy"
 import { User } from "../user/user"
 
 export interface State {
-  filter: string | number | null
+  filter: FilterBy
   users: User[] | null
 }

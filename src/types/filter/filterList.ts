@@ -1,5 +1,4 @@
-export type Country = 'russia' | 'usa' | string
-export type Score = 10 | 20 | number
+import { Country, Score } from "./filterVariants"
 
 export interface FilterList {
   byCountry: Country[]
