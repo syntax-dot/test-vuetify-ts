@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-undef-components -->
 <template>
   <v-card flat
           tile

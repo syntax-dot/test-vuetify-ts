@@ -46,7 +46,7 @@ const store = useStore()
 
 const filters: FilterList = {
   byCountry: ['russia', 'usa'],
-  byScore: [10, 20]
+  byScore: [10, 20, 500]
 }
 
 const selectedFilter = ref<FilterBy>({

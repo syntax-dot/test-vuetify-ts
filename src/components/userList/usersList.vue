@@ -1,23 +1,35 @@
 <template>
-<template v-if="filtredUsers?.length">
-  <v-card maxWidth="450"
-          class="mx-auto">
-    <v-list threeLine>
-      <v-list-subheader :title="subheader ?? 'List'" />
-        <section v-for="(user, index) in filtredUsers" :key="user.id">
-          <userItem  :user="user" />
-          <v-divider v-if="index + 1 !== filtredUsers?.length" />
-        </section>
-    </v-list>
-  </v-card>
-</template>
-<template v-else>
-        <v-progress-circular
-          :size="50"
-          color="primary"
-          indeterminate
-        />
-      </template>
+  <!-- <transition-group name="list" mode="out-in"> -->
+    <template v-if="filtredUsers?.length">
+      <v-card maxWidth="450"
+              class="mx-auto">
+        <v-list threeLine>
+          <v-list-subheader :title="subheader ?? 'List'" />
+
+            <section v-for="(user, index) in filtredUsers" :key="user.id">
+                <userItem  :user="user" />
+                <v-divider v-if="index + 1 !== filtredUsers?.length" />
+            </section>
+
+        </v-list>
+      </v-card>
+    </template>
+    <template v-else-if="!!store.getFilter()">
+      users not found
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      />
+    </template>
+    <template v-else>
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      />
+    </template>
+  <!-- </transition-group> -->
 </template>
 
 <script setup lang="ts">
