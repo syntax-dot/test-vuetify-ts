@@ -37,7 +37,5 @@ function fetchUserByFilter() {
   filtredUsers.value = store.getUsersByFilter()
 }
 
-
-
 watchEffect(fetchUserByFilter)
 </script>

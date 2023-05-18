@@ -13,7 +13,7 @@ export const users: User[] = [
     id: '2',
     avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
     title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-    country: 'russia',
+    country: 'usa',
     score: 12,
     subtitle: '<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I\'m out of town this weekend.'
   },
@@ -29,7 +29,7 @@ export const users: User[] = [
     id: '4',
     avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
     title: 'Birthday gift',
-    country: 'russia',
+    country: 'usa',
     score: 23,
     subtitle: '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?'
   },

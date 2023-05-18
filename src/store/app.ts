@@ -2,7 +2,6 @@ import { State } from '@/types/store/state'
 import { defineStore } from 'pinia'
 import { users } from '@/mock/users'
 import { FilterBy } from '@/types/filter/filterBy'
-import { ref } from 'vue'
 
 export const useStore = defineStore('app', {
   state: () : State => ({
