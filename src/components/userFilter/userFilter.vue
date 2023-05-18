@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-undef-components -->
 <template>
   <v-select v-model="localModel"
             :items="items"

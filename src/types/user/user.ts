@@ -3,6 +3,6 @@ export interface User {
   avatar: string
   title: string
   subtitle: string
-  country?: 'russia' | 'usa'
-  score?: number
+  country: 'russia' | 'usa'
+  score: number
 }

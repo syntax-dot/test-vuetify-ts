@@ -6,5 +6,5 @@ export interface UserFilterProps {
 }
 
 export interface UserFilterEmit {
-  (emit: 'update:modelValue', value: string | number): void
+  (emit: 'update:modelValue', value: string | number | null): void
 }

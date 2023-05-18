@@ -12,14 +12,12 @@
 
       <v-col cols="12"
              md="4">
-        <userFilter v-model="selectedFilter"
+        <userFilter v-model="selectedFilter.byCountry"
                     :items="filters.byCountry"
-                    clearable
                     label="Filter by country" />
 
-        <userFilter v-model="selectedFilter"
+        <userFilter v-model="selectedFilter.byScore"
                     :items="filters.byScore"
-                    clearable
                     label="Filter by score" />
       </v-col>
 
@@ -36,24 +34,34 @@ import { userFilter } from '@/components/userFilter';
 import { usersList } from '@/components/userList';
 import { users } from '@/mock/users';
 import { User } from '@/types/user/user';
+import { FilterList } from '@/types/filter/filterList';
+import { FilterBy } from '@/types/filter/selectedFilter';
 import { ref, watchEffect } from 'vue';
+import { useStore } from '@/store/app';
+
+const store = useStore()
 
 const filtredUsers = ref<User[]>(users)
 
-const filters = {
+const filters: FilterList = {
   byCountry: ['russia', 'usa'],
   byScore: [10, 20]
 }
 
-const selectedFilter = ref<string | null>(null)
+const selectedFilter = ref<FilterBy>(null)
 
-function changeUsers() {
+// function changeUsers() {
+//   if (!selectedFilter.value) return
+//     filtredUsers.value = users.filter(user => user.country === selectedFilter.value?.byCountry)
+// }
 
+// watchEffect(changeUsers)
 
+function changeFilter(){
   if (!selectedFilter.value) return
-  console.log('changeUsers', filtredUsers.value.filter(user => user.country === selectedFilter.value));
-  filtredUsers.value = filtredUsers.value.filter(user => user.country === selectedFilter.value)
+
+  store.setFilter(selectedFilter.value)
 }
 
-watchEffect(changeUsers)
+watchEffect(changeFilter)
 </script>
