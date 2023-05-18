@@ -25,7 +25,7 @@
 
       <v-col cols="12"
              md="4">
-        <usersList :users="users" />
+        <usersList :users="filtredUsers" />
       </v-col>
     </v-row>
   </v-container>
@@ -35,7 +35,10 @@
 import { userFilter } from '@/components/userFilter';
 import { usersList } from '@/components/userList';
 import { users } from '@/mock/users';
-import { ref } from 'vue';
+import { User } from '@/types/user/user';
+import { ref, watchEffect } from 'vue';
+
+const filtredUsers = ref<User[]>(users)
 
 const filters = {
   byCountry: ['russia', 'usa'],
@@ -43,4 +46,14 @@ const filters = {
 }
 
 const selectedFilter = ref<string | null>(null)
+
+function changeUsers() {
+
+
+  if (!selectedFilter.value) return
+  console.log('changeUsers', filtredUsers.value.filter(user => user.country === selectedFilter.value));
+  filtredUsers.value = filtredUsers.value.filter(user => user.country === selectedFilter.value)
+}
+
+watchEffect(changeUsers)
 </script>
