@@ -32,6 +32,14 @@ export const useStore = defineStore('app', {
       return this.users
     },
 
+    // an option where we store users in the state manager and ask users when initializing the application
+    // async fetchUsers() {
+    //   const { data } = await getUsers()
+
+    //   if (data.code === 0)
+    //     this.users = data.data
+    // },
+
     getUsersByFilter() {
       const { byCountry: country, byScore: score  } = this.filter
 
